@@ -1,0 +1,16 @@
+.fretboard {
+    border: 1px solid black;
+    width: 52em;
+}
+
+.fretboard td, .fretboard th {
+    width: 3em;
+}
+
+.fretboard .nut {
+    border-right: 2px solid black;
+}
+
+.fretboard td {
+    border-right: 1px solid gray;
+}
