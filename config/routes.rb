@@ -1,4 +1,11 @@
 GuitarChords::Application.routes.draw do
+
+  resources :scales do
+    resources :intervals
+  end
+
+  root :to => 'scales#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

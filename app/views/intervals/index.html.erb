@@ -1,0 +1,27 @@
+<h1>Listing intervals</h1>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Length</th>
+    <th>Scale</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @intervals.each do |interval| %>
+  <tr>
+    <td><%= interval.position %></td>
+    <td><%= interval.length %></td>
+    <td><%= interval.scale_id %></td>
+    <td><%= link_to 'Show', interval %></td>
+    <td><%= link_to 'Edit', edit_interval_path(interval) %></td>
+    <td><%= link_to 'Destroy', interval, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Interval', new_interval_path %>

@@ -20,8 +20,11 @@ gem 'capistrano'
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
+
+gem 'mysql2'
+gem 'acts-as-taggable-on'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
