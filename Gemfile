@@ -31,5 +31,9 @@ gem 'acts-as-taggable-on'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'webrat'
+  gem 'wirble'
+  gem 'looksee'
+  gem 'awesome_print'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end

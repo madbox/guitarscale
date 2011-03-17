@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Interval do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # Testing factories and predefined parametrs
+  subject { Factory.build :interval }
+  it { should be_valid }
 end

@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Scale do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "factory should build chromatic scale" do 
+    subject { Factory.build :scale }
+    it { should be_valid }
+    it { ( subject.name == "chromatic" ).should be_true }
+    it { should have(12).intervals }
+  end
 end

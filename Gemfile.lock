@@ -30,6 +30,7 @@ GEM
     activesupport (3.0.5)
     acts-as-taggable-on (2.0.6)
     arel (2.0.9)
+    awesome_print (0.3.2)
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -40,9 +41,14 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (1.3.3)
+    factory_girl_rails (1.0.1)
+      factory_girl (~> 1.3)
+      railties (>= 3.0.0)
     highline (1.6.1)
     i18n (0.5.0)
     kgio (2.3.2)
+    looksee (1.0.1)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -103,16 +109,21 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    wirble (0.1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   acts-as-taggable-on
+  awesome_print
   capistrano
+  factory_girl_rails
+  looksee
   mysql2
   rails (= 3.0.5)
   rspec-rails
   sqlite3
   unicorn
   webrat
+  wirble
