@@ -34,8 +34,14 @@ class Scale < ActiveRecord::Base
 
   def notes_pattern root_note = 0
     raise( ArgumentError, "Numeric expected in root_note, got: #{root_note.inspect}" ) unless root_note.is_a?( Numeric )
+
+    @notes_patterns ||= { }
+    return @notes_patterns[root_note] if @notes_patterns.has_key?( root_note )
+
     pattern = intervals.order( :position ).map(&:length).inject([0]){|s,i| [s, s.flatten.last + i ]}.flatten
     pattern.each_with_index{ |el, i| pattern[i] = ( el + root_note ) % Scale::NOTES_BY_POSITION.keys.size }
+
+    @notes_patterns[root_note] = pattern
   end
 
   def set_intervals array
