@@ -21,9 +21,11 @@ $(function() {
     
 	$("#slider").data("currentlyMoving", false);
 
-	$container
+        if ($panels[0]) {
+	  $container
 		.css('width', ($panels[0].offsetWidth * $panels.length) + 100 )
 		.css('left', "-350px");
+        }
 
 	var scroll = $('#slider .scroll').css('overflow', 'hidden');
 

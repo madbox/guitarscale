@@ -22,7 +22,7 @@ class Scale < ActiveRecord::Base
    11 => 'B'
   }
 
-  def before_validation
+  def self.before_validation
     if @intervals_string.match(/^\d+$/)
       set_intervals @intervals_string.split('').map{ |char| char.to_i }
     end
