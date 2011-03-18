@@ -14,6 +14,8 @@ class ScalesController < ApplicationController
   # GET /scales/1.xml
   def show
     @scale = Scale.find(params[:id])
+    @root_note = params[:root].to_i || 0
+    @tuning = Scale::DEFAULT_TUNING
 
     respond_to do |format|
       format.html # show.html.erb

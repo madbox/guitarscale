@@ -4,7 +4,7 @@
 }
 
 .fretboard td, .fretboard th {
-    width: 3em;
+    width: 4em;
 }
 
 .fretboard .nut {
@@ -13,4 +13,13 @@
 
 .fretboard td {
     border-right: 1px solid gray;
+    text-align: center;
+}
+
+.fretboard td.active, .fretboard th.active {
+    color: red;
+}
+
+.fretboard td.passive, .fretboard th.passive {
+    color: grey;
 }
