@@ -5,5 +5,6 @@ end
 
 Factory.define :scale do |s|
   s.name "chromatic"
-  s.intervals { |i| arr = []; 12.times{ |n| arr << i.association(:interval, :position => n) }; arr }
+  s.intervals { |i| arr = []; 11.times{ |n| arr << i.association( :interval, :position => n ) }; arr }
 end
+
