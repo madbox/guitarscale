@@ -1,23 +1,16 @@
 <h1>Listing scales</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul class="index">
 <% @scales.each do |scale| %>
-  <tr>
-    <td><%= scale.name %></td>
-    <td><%= link_to 'Show', scale %></td>
-    <td><%= link_to 'Edit', edit_scale_path(scale) %></td>
-    <td><%= link_to 'Destroy', scale, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li>
+    <label><%= scale.name %></label>
+    <%= link_to 'Show', scale %>
+    <%= link_to 'Edit', edit_scale_path(scale) %>
+    <%= link_to 'Destroy', scale, :confirm => 'Are you sure?', :method => :delete %>
+  </li>
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New Scale', new_scale_path %>
+<p>
+  <%= link_to 'New Scale', new_scale_path %>
+</p>

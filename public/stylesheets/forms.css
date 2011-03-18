@@ -1,0 +1,22 @@
+article {
+    min-height: 20em;
+}
+
+article form label {
+    display: block;
+    line-height: 23px;
+    float: left;
+    width: 30ex;
+}
+
+article ul.index {
+    list-style: none;
+    line-height: 23px;
+}
+
+article ul.index label {
+    display: block;
+    float: left;
+    width: 30ex;
+    line-height: 23px;
+}

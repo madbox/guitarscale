@@ -1,18 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @scale.name.capitalize %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @scale.name %>
-</p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <b>Intervals:</b>
   <%= @scale.intervals_string %>
+  <b>Root:</b>
+  <%= note @root_note %>
 </p>
 
 <p>
-  <b>Root:</b>
-  <%= note @root_note %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_scale_path( @scale ) %> |
+  <%= link_to 'Back', scales_path %>
 </p>
 
 <h1>Fretboard</h1>
@@ -21,28 +23,25 @@
     <table>
       <tr>
         <th>№</th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
-        <th>6</th>
-        <th>7</th>
-        <th>8</th>
-        <th>9</th>
-        <th>10</th>
-        <th>11</th>
-        <th>12</th>
+        <% 21.times do |n| -%>
+          <th><%= n + 1 -%></th>
+        <% end -%>
       </tr>
       
       <% for string_tune in @tuning do %>
       
       <tr>
         <th class="nut <%= @scale.notes_pattern( @root_note ).include?( string_tune ) ? 'active' : 'passive' -%>"><%= note string_tune -%></th>
-        <% 12.times do |i| -%>
+        <% 21.times do |i| -%>
         <% cur_note = ( i + string_tune + 1 ) % Scale::NOTES_BY_POSITION.keys.size -%>
 
-        <td class="<%= @scale.notes_pattern( @root_note ).include?( cur_note ) ? 'active' : 'passive' -%>"><%= note( cur_note )-%></td>
+        <% if @scale.notes_pattern( @root_note ).include?( cur_note ) -%>
+          <td class="active"><%= note( cur_note )-%> <%= @scale.notes_pattern( @root_note ).index( cur_note ) + 1 -%></td>
+        <% else -%>
+          <td class="passive"><%= note( cur_note )-%></td>
+        <% end -%>
+        
+
         <% end -%>
       </tr>
 
@@ -51,5 +50,3 @@
     </table>
   </div>
 
-<%= link_to 'Edit', edit_scale_path( @scale ) %> |
-<%= link_to 'Back', scales_path %>
