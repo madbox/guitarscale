@@ -41,7 +41,6 @@ rspec-expectations -v2.5.0
 rspec-mocks -v2.5.0
 rspec-rails -v2.5.0
 sqlite3 -v1.3.3
-sqlite3-ruby -v1.3.3
 thor -v0.14.6
 treetop -v1.4.9
 tzinfo -v0.3.24
