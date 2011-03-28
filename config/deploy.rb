@@ -32,12 +32,12 @@ after "deploy:update_code", :prepare_configs
 
 namespace :deploy do
   task :start do
-    run "bundle exec unicorn_rails -D"
+    run "cd #{current_path}; bundle exec unicorn_rails -D"
   end
   task :stop do
-    run "kill -9 $(cat tmp/pids/unicorn.pid)"
+    run "cd #{currnet_path}; kill -9 $(cat tmp/pids/unicorn.pid)"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "kill -9 $(cat tmp/pids/unicorn.pid); bundle exec unicorn_rails -D"
+    run "cd #{current_path}; kill -9 $(cat tmp/pids/unicorn.pid); bundle exec unicorn_rails -D"
   end
 end

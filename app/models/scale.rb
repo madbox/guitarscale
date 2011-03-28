@@ -1,7 +1,7 @@
 class Scale < ActiveRecord::Base
   acts_as_taggable 
 
-  has_many :intervals, :dependant => :destroy
+  has_many :intervals, :dependent => :destroy
 
   attr_accessor :intervals_string
 
