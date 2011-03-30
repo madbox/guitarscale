@@ -26,18 +26,23 @@ end
 
 after "deploy:update_code", :prepare_configs
 
-# If you are using Passenger mod_rails uncomment this:
-# if you're still using the script/reapear helper you will need
-# these http://github.com/rails/irs_process_scripts
+set :unicorn_conf, "#{shared_path}/unicorn.conf.rb"
+set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 
+# - for unicorn - #
 namespace :deploy do
-  task :start do
-    run "cd #{current_path}; bundle exec unicorn_rails -D"
+  desc "Start application"
+  task :start, :roles => :app do
+    run "unicorn_rails -Dc #{unicorn_conf}"
   end
-  task :stop do
-    run "cd #{currnet_path}; kill -9 $(cat tmp/pids/unicorn.pid)"
+
+  desc "Stop application"
+  task :stop, :roles => :app do
+    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
   end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path}; kill -9 $(cat tmp/pids/unicorn.pid); bundle exec unicorn_rails -D"
+
+  desc "Restart Application"
+  task :restart, :roles => :app do
+    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || unicorn_rails -Dc #{unicorn_conf}"
   end
 end
