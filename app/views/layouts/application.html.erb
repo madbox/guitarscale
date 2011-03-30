@@ -4,15 +4,12 @@
     <meta charset="utf-8" />
     <title>GuitarScales</title>
 
-  <%= stylesheet_link_tag :all %>
-  <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag :all %>
+    <%= csrf_meta_tag %>
 
-    <link rel="stylesheet" href="/stylesheets/template/movingbox.css" type="text/css" media="screen">
-    <script src="/javascripts/template/jquery-1.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/javascripts/template/slider.js" type="text/javascript" charset="utf-8"></script>
-    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js?ver=1.3.2'></script>
-    <script type='text/javascript' src='/javascripts/template/jquery.color-RGBa-patch.js'></script>
-    <script type='text/javascript' src='/javascripts/template/example.js'></script>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" %>    
+    <%= javascript_include_tag 'rails' -%>
+
     <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
   </head>

@@ -28,7 +28,7 @@ after "deploy:update_code", :prepare_configs
 
 set :unicorn_conf, "#{shared_path}/unicorn.conf.rb"
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
-set :start_cmd, "cd #{current_path}; bundle exec unicorn_rails -Dc #{unicorn_conf}"
+set :start_cmd, "`cd #{current_path} && bundle exec unicorn_rails -Dc #{unicorn_conf}`"
 # - for unicorn - #
 namespace :deploy do
   desc "Start application"
@@ -43,6 +43,6 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{start_cmd}"
+    run "[ -f #{unicorn_pid} ] && kill -HUP `cat #{unicorn_pid}` || #{start_cmd}"
   end
 end
