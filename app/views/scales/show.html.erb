@@ -27,26 +27,19 @@
           <th><%= n + 1 -%></th>
         <% end -%>
       </tr>
-      
-      <% for string_tune in @tuning do %>
-      
+      <% for string_tune in @tuning do -%>
       <tr>
         <th class="nut <%= @scale.notes_pattern( @root_note ).include?( string_tune ) ? 'active' : 'passive' -%>"><%= note string_tune -%></th>
         <% 21.times do |i| -%>
         <% cur_note = ( i + string_tune + 1 ) % Scale::NOTES_BY_POSITION.keys.size -%>
-
         <% if @scale.notes_pattern( @root_note ).include?( cur_note ) -%>
           <td class="active"><%= note( cur_note )-%> <%= @scale.notes_pattern( @root_note ).index( cur_note ) + 1 -%></td>
         <% else -%>
           <td class="passive"><%= note( cur_note )-%></td>
         <% end -%>
-        
-
         <% end -%>
       </tr>
-
-      <% end %>
-
+      <% end -%>
     </table>
   </div>
 

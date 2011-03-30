@@ -5,6 +5,8 @@ class Scale < ActiveRecord::Base
 
   attr_accessor :intervals_string
 
+  validate :correct_intervals
+
   DEFAULT_TUNING = [4,11,7,2,9,4]
 
   NOTES_BY_POSITION = { 
@@ -22,14 +24,18 @@ class Scale < ActiveRecord::Base
    11 => 'B'
   }
 
-  def self.before_validation
+  def correct_intervals
+    errors.add( :intervals, "sum should be 12 or less" ) unless @intervals_string.split('').map{ |i| i.to_i }.sum <= 12 
+  end
+
+  def after_validation
     if @intervals_string.match(/^\d+$/)
       set_intervals @intervals_string.split('').map{ |char| char.to_i }
     end
   end
 
   def intervals_string
-    intervals.order( :position ).map(&:length).join
+    @intervals_string || intervals.order( :position ).map(&:length).join
   end
 
   def notes_pattern root_note = 0
