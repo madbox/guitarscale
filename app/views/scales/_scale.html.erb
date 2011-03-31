@@ -1,0 +1,50 @@
+<h1><%= @scale.name.capitalize %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Intervals:</b>
+  <%= @scale.intervals_string %>
+  <b>Root:</b>
+  <% 12.times do |i| -%>
+    <% unless i == @root_note -%>
+    <%= link_to note( i ), scale_path( @scale, :root => i ), :remote => true %>
+    <% else -%>
+    <%= note @root_note %>
+    <% end -%>    
+  <% end -%>
+</p>
+
+<p>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_scale_path( @scale ) %> |
+  <%= link_to 'Back', scales_path %>
+</p>
+
+<h1>Fretboard</h1>
+
+  <div class="fretboard">
+    <table>
+      <tr>
+        <th>№</th>
+        <% 21.times do |n| -%>
+          <th><%= n + 1 -%></th>
+        <% end -%>
+      </tr>
+      <% for string_tune in @tuning do -%>
+      <tr>
+        <th class="nut <%= @scale.notes_pattern( @root_note ).include?( string_tune ) ? 'active' : 'passive' -%>"><%= note string_tune -%></th>
+        <% 21.times do |i| -%>
+        <% cur_note = ( i + string_tune + 1 ) % Scale::NOTES_BY_POSITION.keys.size -%>
+        <% if @scale.notes_pattern( @root_note ).include?( cur_note ) -%>
+          <td class="active"><%= note( cur_note )-%> <%= @scale.notes_pattern( @root_note ).index( cur_note ) + 1 -%></td>
+        <% else -%>
+          <td class="passive"><%= note( cur_note )-%></td>
+        <% end -%>
+        <% end -%>
+      </tr>
+      <% end -%>
+    </table>
+  </div>

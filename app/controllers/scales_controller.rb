@@ -1,4 +1,6 @@
 class ScalesController < ApplicationController
+  respond_to :html, :js
+
   # GET /scales
   # GET /scales.xml
   def index
@@ -14,13 +16,12 @@ class ScalesController < ApplicationController
   # GET /scales/1.xml
   def show
     @scale = Scale.find(params[:id])
-    @root_note = params[:root].to_i || 0
+    session[:root_note] = params[:root].to_i if params[:root]
+    session[:root_note] ||= 0
+    @root_note = session[:root_note]
     @tuning = Scale::DEFAULT_TUNING
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @scale }
-    end
+    respond_with @scale
   end
 
   # GET /scales/new
@@ -82,4 +83,21 @@ class ScalesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  # def set_root
+  #   if (0..11).include?( params[:note].to_i )
+  #     session[:root_note] = params[:note].to_i
+  #   end
+
+  #   @scale = Scale.find(params[:id])
+  #   @tuning = Scale::DEFAULT_TUNING
+  #   render 'show'
+  # end
+
+  # private
+
+  # def check_root_note
+  #   @root_note = session[:root_note] || 0
+  # end
 end

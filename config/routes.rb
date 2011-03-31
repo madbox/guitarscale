@@ -1,5 +1,7 @@
 GuitarChords::Application.routes.draw do
 
+  match 'scales/:id/set_root/:note' => 'scales#set_root', :as => :set_root
+
   resources :scales do
     resources :intervals
   end
