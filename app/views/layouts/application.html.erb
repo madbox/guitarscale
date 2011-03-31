@@ -8,7 +8,7 @@
     <%= csrf_meta_tag %>
 
     <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" %>    
-    <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+    <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js" %>
     <%= javascript_include_tag 'rails' -%>
 
     <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -26,83 +26,15 @@
 	<ul class="group" id="example-one">
           <li class="current_page_item"><%= link_to 'Scales', scales_path -%></li>
 <!--
-          <li><a href="#three">Blog</a></li>
-          <li><a href="#">Reviews</a></li>
-          <li><a href="#">The Show</a></li>
-          <li><a href="#">Videos</a></li>
-          <li><a href="#">Photos</a></li>
-          <li><a href="#">Forums</a></li>
+          <li><a href="#">Other</a></li>
 -->
         </ul>
       </div>
 
       <section id="main"><!-- #main content area -->
-<!--
-	<p>&nbsp;</p>
-	<p><br></p>
-
-	<div id="slider">    
-          <img class="scrollButtons left" src="/images/leftarrow.png">
-  	  <div style="overflow: hidden;" class="scroll">
-
-    
-	    <div class="scrollContainer">
-	      
-              <div class="panel" id="panel_1">
-		<div class="inside">
-		  <img src="/images/p1.jpg" alt="picture" />
-		  <h2>News Heading</h2>
-		  <p>A very short excerpt goes here... <a href="#">more link</a></p>
-		</div>
-	      </div>
-
-              <div class="panel" id="panel_2">
-		<div class="inside">
-		  <img src="/images/p2.jpg" alt="picture" />
-		  <h2>News Heading</h2>
-		  <p>A very short excerpt goes here... <a href="#">more link</a></p>
-		</div>
-	      </div>
-	      
-              <div class="panel" id="panel_3">
-		<div class="inside">
-		  <img src="/images/p3.jpg" alt="picture" />
-		  <h2>News Heading</h2>
-		  <p>A very short excerpt goes here... <a href="#">more link</a></p>
-		</div>
-	      </div>
-	      
-	      <div class="panel" id="panel_4">
-		<div class="inside">
-		  <img src="/images/p4.jpg" alt="picture" />
-		  <h2>News Heading</h2>
-		  <p>A very short excerpt goes here... <a href="#">more link</a></p>
-		</div>
-	      </div>
-	      
-	      <div class="panel" id="panel_5">
-		<div class="inside">
-		  <img src="/images/p5.jpg" alt="picture" />
-		  <h2>News Heading</h2>
-		  <p>A very short excerpt goes here... <a href="#">more link</a></p>
-		</div>
-	      </div>
-	      
-            </div>
-
-	    <div id="left-shadow"></div>
-	    <div id="right-shadow"></div>
-
-          </div>
-
-	  <img class="scrollButtons right" src="/images/rightarrow.png">
-
-        </div>
--->
         <article>
           <%= yield %>
         </article>
-
       </section><!-- end of #content -->
 
       <footer>
@@ -112,7 +44,7 @@
 	    <aside class="footer-segment first">
 	      <h4>&nbsp;</h4>
 	      <ul>
-		<!-- <li><a href="#">one linkylink</a></li> -->
+		<li><a href="http://github.com/madbox/guitarscale">Source code</a></li>
 		<!-- <li><a href="#">two linkylinks</a></li> -->
 		<!-- <li><a href="#">three linkylinks</a></li> -->
 	      </ul>
@@ -121,9 +53,9 @@
 	    <aside class="footer-segment second">
 	      <h4>&nbsp;</h4>
 	      <ul>
-		<!-- <li><a href="#">one linkylink</a></li> -->
-		<!-- <li><a href="#">two linkylinks</a></li> -->
-		<!-- <li><a href="#">three linkylinks</a></li> -->
+		<li><a href="http://ruby-lang.org">Ruby</a></li>
+		<li><a href="http://rubyonrails.org">Ruby on rails</a></li>
+		<li><a href="http://jquery.com">JQuery</a></li>
 	      </ul>
 	    </aside><!-- end of #second footer segment -->
 
